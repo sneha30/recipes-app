@@ -1,0 +1,23 @@
+<h1>Create User</h1>
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>Create your recipe</h1>
+      <form class="formwidth" (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+        <div class="example-container">
+
+                <mat-form-field class="formwidth">
+                  <input matInput placeholder="Name" id="name" [(ngModel)]="users.name" name="name">
+                </mat-form-field>
+                <mat-form-field class="formwidth">
+                  <input matInput placeholder="Email" id="email" [(ngModel)]="users.email" name="email">
+                </mat-form-field>
+                <mat-form-field class="formwidth">
+                    <input matInput type="password" placeholder="Password" id="password" [(ngModel)]="users.password" name="password">
+                  </mat-form-field>
+                <mat-form-field class="formwidth">
+                    <input matInput type="password" placeholder="Confirm Password" id="confirm_password" [(ngModel)]="users.confirm_password" name="confirm_password">
+                  </mat-form-field>
+                  <button mat-button type="submit">Register</button>
+          </div>
+          </form></div>
+          </div>

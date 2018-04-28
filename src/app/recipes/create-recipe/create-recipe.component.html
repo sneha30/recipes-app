@@ -1,0 +1,93 @@
+<form class="formwidth" (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+  <mat-accordion multi="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Recipe Infomation
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field class="formwidth">
+        <input matInput placeholder="Recipe Name" id="name" [(ngModel)]="recipe.name" name="name">
+      </mat-form-field>
+
+      <mat-form-field class="formwidth">
+        <input matInput placeholder="Cuisine" id="cuisine" [(ngModel)]="recipe.cuisine" name="cuisine">
+      </mat-form-field>
+
+      <mat-radio-group [(ngModel)]="recipe.type" name="type">
+        <mat-radio-button value="vegan">Vegan</mat-radio-button>
+        <mat-radio-button value="veg">Vegeterian</mat-radio-button>
+        <mat-radio-button value="nonveg">Non-Vegeterian</mat-radio-button>
+      </mat-radio-group>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Ingredients
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-table>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let user"> {{ingredient.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let user"> {{ingredient.quantity}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="measurement">
+          <mat-header-cell *matHeaderCellDef> Measurement </mat-header-cell>
+          <mat-cell *matCellDef="let user"> {{ingredient.measurement}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="calories">
+          <mat-header-cell *matHeaderCellDef> Calories </mat-header-cell>
+          <mat-cell *matCellDef="let user"> {{ingredient.calories}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+      <mat-panel-title>
+        Instructions
+      </mat-panel-title>
+      <mat-panel-description>
+
+      </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <textarea matInput id="prep_instructions" name="prep_instructions" placeholder="Preperation Instructions" [(ngModel)]="recipe.prep_instructions"
+          matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="35"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput id="cook_instructions" name="cook_instructions" placeholder="Cooking Instructions" [(ngModel)]="recipe.prep_instructions"
+          matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="35"></textarea>
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Tags
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <input matInput id="tags" name="tags" placeholder="Tags" [(ngModel)]="recipe.tags">
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <button mat-button type="submit">Save</button>
+</form>

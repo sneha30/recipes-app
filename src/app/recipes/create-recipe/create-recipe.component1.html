@@ -1,0 +1,81 @@
+
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Create your recipe</h1>
+    <form class="formwidth" (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+      <div class="example-container">
+      <table style="width:100%">
+        <tr>
+          <td>
+            
+              <mat-form-field class="formwidth">
+                <input matInput placeholder="Recipe Name" id="name" [(ngModel)]="recipe.name" name="name">
+              </mat-form-field>
+            
+          </td>
+          <td>
+              <mat-form-field class="formwidth">
+                <input matInput placeholder="Cuisine" id="cuisine" [(ngModel)]="recipe.cuisine" name="cuisine">
+              </mat-form-field>
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            
+              <mat-form-field class="formwidth">
+                <input matInput placeholder="Preperation Time" id="prep_time" [(ngModel)]="recipe.prep_time" name="prep_time">
+              </mat-form-field>
+            
+          </td>
+          <td>
+              <mat-form-field class="formwidth">
+                <input matInput placeholder="cook_time" id="cook_time" [(ngModel)]="recipe.cook_time" name="cook_time">
+              </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <mat-form-field class="formwidth">
+                <input matInput placeholder="calories" id="calories" [(ngModel)]="recipe.calories" name="calories">
+              </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="formwidth">
+              <input matInput placeholder="author" id="author" [(ngModel)]="recipe.author" name="author">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="formwidth">
+              <input matInput placeholder="ingredient" id="ingredient" [(ngModel)]="recipe.ingradient" name="ingredient">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="recipe.created_date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <mat-form-field>
+            <textarea matInput id="prep_instructions" name="prep_instructions" placeholder="Procedure" [(ngModel)]="recipe.prep_instructions" matTextareaAutosize matAutosizeMinRows="5"
+            matAutosizeMaxRows="35"></textarea>
+              </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+          <td>
+              <button mat-button type="submit">Save</button>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </form>
+  </div>
+  </div>
